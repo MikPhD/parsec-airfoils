@@ -28,7 +28,7 @@ def ppoints(cf_pre, cf_suc, npts=121, xte=1.0):
     '''
     # Using cosine spacing to concentrate points near TE and LE,
     # see http://airfoiltools.com/airfoil/naca4digit
-    xpts = (1 - np.cos(np.linspace(0, 1, np.ceil(npts/2))*np.pi)) / 2
+    xpts = (1 - np.cos(np.linspace(0, 1, int(np.ceil(npts/2)))*np.pi)) / 2
     # Take TE x-position into account
     xpts *= xte
 
@@ -74,7 +74,7 @@ def _example():
                       'suc')
 
     # Get and print plain list of coordinates
-    print ppointsplain(cf_pre, cf_suc, 121, xte=xte)
+    print(ppointsplain(cf_pre, cf_suc, 121, xte=xte))
     # Get list of coordinates
     pts = ppoints(cf_pre, cf_suc, 121, xte=xte)
     # Plot this airfoil, transposing pts to get list of x's and list of y's
